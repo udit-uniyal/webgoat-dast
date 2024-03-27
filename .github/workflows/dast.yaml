@@ -31,7 +31,7 @@ jobs:
       env:
         CI_COMMIT_SHORT_SHA: ${{ github.sha }}
 
-sast:
+  sast:
     needs: build
     runs-on: ubuntu-latest
     steps:
@@ -71,4 +71,3 @@ sast:
       run: |
         echo "Running DAST Analysis"
         # Example: curl command to trigger DAST scan
-
