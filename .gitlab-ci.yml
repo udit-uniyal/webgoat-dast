@@ -1,0 +1,84 @@
+stages:
+  - build
+  - analyze
+  - push
+  - dast
+
+include:
+  - template: SAST.gitlab-ci.yml
+  - template: DAST.gitlab-ci.yml
+
+build:
+  stage: build
+  image: maven:3-jdk-11-slim
+  script:
+    - mvn clean install -DskipTests
+    - mvn package -DskipTests -Dmaven.repo.local=./.m2/
+  cache:
+    policy: push
+    key: ${CI_COMMIT_SHORT_SHA}
+    paths:
+      - .m2
+  artifacts:
+    paths:
+      - "webgoat-server/Dockerfile"
+      - "webgoat-server/target/webgoat-server-v8.1.0.jar"
+
+sast:
+  stage: analyze
+  artifacts:
+    reports:
+      sast: gl-sast-report.json
+    paths:
+      - .m2/
+      - target/
+      - gl-sast-report.json
+
+spotbugs-sast:
+  dependencies:
+    - build
+  script:
+    - /analyzer run -compile=false
+  variables:
+    MAVEN_REPO_PATH: ${CI_PROJECT_DIR}/.m2/
+  artifacts:
+    reports:
+      sast: gl-sast-report.json
+    paths:
+      - gl-sast-report.json
+
+push:
+  services:
+  - name: docker:dind
+    alias: dind
+  image: docker:19.03.5
+  stage: push
+  script:
+    - cd webgoat-server
+    - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
+    - docker pull $CI_REGISTRY_IMAGE:latest || true
+    - docker build --build-arg webgoat_version=v8.1.0 --tag $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA --tag $CI_REGISTRY_IMAGE:latest .
+    - docker push $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA
+    - docker push $CI_REGISTRY_IMAGE:latest
+
+dast:
+  services:
+  - name: $CI_REGISTRY_IMAGE:latest
+    alias: webgoat
+  variables:
+    GIT_STRATEGY: fetch
+    DAST_WEBSITE: http://webgoat:8080/WebGoat/
+    DAST_AUTH_URL: http://webgoat:8080/WebGoat/login
+    DAST_EXCLUDE_URLS: http://webgoat:8080/WebGoat/logout,http://webgoat:8080/WebGoat/login,http://webgoat:8080/WebGoat/login?logout
+    DAST_FULL_SCAN_ENABLED: "true"
+    DAST_USERNAME: testtest
+    DAST_PASSWORD: password # use protected/masked variables, this is only for demonstration purposes
+    DAST_USERNAME_FIELD: username
+    DAST_PASSWORD_FIELD: password
+    DAST_AUTH_REPORT: "true"
+    DAST_AUTH_VERIFICATION_URL: "http://webgoat:8080/WebGoat/start.mvc#lesson/WebGoatIntroduction.lesson"
+  before_script:
+    - curl -vvv -X POST -d "username=testtest&password=password&matchingPassword=password&agree=agree&submit=Submit" "http://webgoat:8080/WebGoat/register.mvc"
+  artifacts:
+    paths: [gl-dast-debug-auth-report.html]
+    when: always

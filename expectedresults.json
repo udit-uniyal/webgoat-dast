@@ -1,0 +1,856 @@
+{
+    "project_info": {
+        "languages": {
+            "java": {
+                "src_base": "webgoat-lessons/"
+            }
+        }
+    },
+    "filter": {
+        "include": [
+            "webgoat-lessons/**/*.(java|js|html|xml)"
+        ]
+    },
+    "vulnerabilities": [
+        {
+            "category": "xss",
+            "true_positive": true,
+            "cwe": 79,
+            "location": {
+                "file": "webgoat-container/src/main/resources/static/js/goatApp/view/LessonContentView.js",
+                "start_line": 221,
+                "end_line": 221
+            }
+        },
+        {
+            "category": "xss",
+            "true_positive": true,
+            "cwe": 79,
+            "location": {
+                "file": "webgoat-container/src/main/resources/static/js/goatApp/view/LessonContentView.js",
+                "start_line": 185,
+                "end_line": 185
+            }
+        },
+        {
+            "category": "xss",
+            "true_positive": true,
+            "cwe": 79,
+            "location": {
+                "file": "webgoat-container/src/main/resources/static/js/goatApp/view/LessonContentView.js",
+                "start_line": 178,
+                "end_line": 178
+            }
+        },
+        {
+            "category": "crypto",
+            "true_positive": true,
+            "cwe": 311,
+            "location": {
+                "file": "webgoat-container/src/main/java/org/owasp/webgoat/WebSecurityConfig.java",
+                "start_line": 98,
+                "end_line": 98
+            }
+        },
+        {
+            "category": "csrf",
+            "true_positive": true,
+            "cwe": 352,
+            "location": {
+                "file": "webgoat-container/src/main/java/org/owasp/webgoat/WebSecurityConfig.java",
+                "start_line": 72,
+                "end_line": 72
+            }
+        },
+        {
+            "category": "wrong_sphere",
+            "true_positive": true,
+            "cwe": 668,
+            "location": {
+                "file": "webgoat-container/src/main/java/org/owasp/webgoat/service/SessionService.java",
+                "start_line": 40,
+                "end_line": 60
+            }
+        },
+        {
+            "category": "xss",
+            "true_positive": true,
+            "cwe": 79,
+            "location": {
+                "file": "webgoat-lessons/xxe/src/main/resources/js/xxe.js",
+                "start_line": 75,
+                "end_line": 78
+            }
+        },
+        {
+            "category": "stack_trace",
+            "true_positive": true,
+            "cwe": 536,
+            "location": {
+                "file": "webgoat-lessons/xxe/src/main/java/org/owasp/webgoat/xxe/SimpleXXE.java",
+                "start_line": 75,
+                "end_line": 77
+            }
+        },
+        {
+            "category": "pathtraver",
+            "true_positive": true,
+            "cwe": 23,
+            "location": {
+                "file": "webgoat-lessons/xxe/src/main/java/org/owasp/webgoat/xxe/Ping.java",
+                "start_line": 48,
+                "end_line": 48
+            }
+        },
+        {
+            "category": "stack_trace",
+            "true_positive": true,
+            "cwe": 536,
+            "location": {
+                "file": "webgoat-lessons/xxe/src/main/java/org/owasp/webgoat/xxe/ContentTypeAssignment.java",
+                "start_line": 70,
+                "end_line": 75
+            }
+        },
+        {
+            "category": "xxe",
+            "true_positive": true,
+            "cwe": 611,
+            "location": {
+                "file": "webgoat-lessons/xxe/src/main/java/org/owasp/webgoat/xxe/Comments.java",
+                "start_line": 88,
+                "end_line": 93
+            }
+        },
+        {
+            "category": "xss",
+            "true_positive": true,
+            "cwe": 79,
+            "location": {
+                "file": "webgoat-lessons/webgoat-lesson-template/src/main/resources/js/idor.js",
+                "start_line": 4,
+                "end_line": 7
+            }
+        },
+        {
+            "category": "hardcoded_credentials",
+            "true_positive": true,
+            "cwe": 798,
+            "location": {
+                "file": "webgoat-lessons/webgoat-lesson-template/src/main/java/org/owasp/webgoat/template/SampleAttack.java",
+                "start_line": 43,
+                "end_line": 43
+            }
+        },
+        {
+            "category": "xxe",
+            "true_positive": true,
+            "cwe": 611,
+            "location": {
+                "file": "webgoat-lessons/vulnerable-components/src/main/java/org/owasp/webgoat/vulnerable_components/VulnerableComponentsLesson.java",
+                "start_line": 68,
+                "end_line": 68
+            }
+        },
+        {
+            "category": "ssrf",
+            "true_positive": true,
+            "cwe": 918,
+            "location": {
+                "file": "webgoat-lessons/ssrf/src/main/java/org/owasp/webgoat/ssrf/SSRFTask2.java",
+                "start_line": 54,
+                "end_line": 56
+            }
+        },
+        {
+            "category": "xss",
+            "true_positive": true,
+            "cwe": 79,
+            "location": {
+                "file": "webgoat-lessons/sql-injection/src/main/resources/js/quiz.js",
+                "start_line": 25,
+                "end_line": 34
+            }
+        },
+        {
+            "category": "xss",
+            "true_positive": true,
+            "cwe": 79,
+            "location": {
+                "file": "webgoat-lessons/sql-injection/src/main/resources/js/assignment13.js",
+                "start_line": 46,
+                "end_line": 57
+            }
+        },
+        {
+            "category": "sqli",
+            "true_positive": true,
+            "cwe": 89,
+            "location": {
+                "file": "webgoat-lessons/sql-injection/src/main/java/org/owasp/webgoat/sql_injection/mitigation/Servers.java",
+                "start_line": 73,
+                "end_line": 73
+            }
+        },
+        {
+            "category": "sqli",
+            "true_positive": true,
+            "cwe": 89,
+            "location": {
+                "file": "webgoat-lessons/sql-injection/src/main/java/org/owasp/webgoat/sql_injection/introduction/SqlInjectionLesson2.java",
+                "start_line": 62,
+                "end_line": 62
+            }
+        },
+        {
+            "category": "sqli",
+            "true_positive": true,
+            "cwe": 89,
+            "location": {
+                "file": "webgoat-lessons/sql-injection/src/main/java/org/owasp/webgoat/sql_injection/introduction/SqlInjectionLesson3.java",
+                "start_line": 65,
+                "end_line": 65
+            }
+        },
+        {
+            "category": "sqli",
+            "true_positive": true,
+            "cwe": 89,
+            "location": {
+                "file": "webgoat-lessons/sql-injection/src/main/java/org/owasp/webgoat/sql_injection/introduction/SqlInjectionLesson4.java",
+                "start_line": 59,
+                "end_line": 59
+            }
+        },
+        {
+            "category": "sqli",
+            "true_positive": true,
+            "cwe": 89,
+            "location": {
+                "file": "webgoat-lessons/sql-injection/src/main/java/org/owasp/webgoat/sql_injection/introduction/SqlInjectionLesson5a.java",
+                "start_line": 60,
+                "end_line": 62
+            }
+        },
+        {
+            "category": "sqli",
+            "true_positive": true,
+            "cwe": 89,
+            "location": {
+                "file": "webgoat-lessons/sql-injection/src/main/java/org/owasp/webgoat/sql_injection/introduction/SqlInjectionLesson5b.java",
+                "start_line": 56,
+                "end_line": 71
+            }
+        },
+        {
+            "category": "sqli",
+            "true_positive": true,
+            "cwe": 89,
+            "location": {
+                "file": "webgoat-lessons/sql-injection/src/main/java/org/owasp/webgoat/sql_injection/introduction/SqlInjectionLesson8.java",
+                "start_line": 59,
+                "end_line": 65
+            }
+        },
+        {
+            "category": "sqli",
+            "true_positive": true,
+            "cwe": 89,
+            "location": {
+                "file": "webgoat-lessons/sql-injection/src/main/java/org/owasp/webgoat/sql_injection/introduction/SqlInjectionLesson8.java",
+                "start_line": 133,
+                "end_line": 137
+            }
+        },
+        {
+            "category": "sqli",
+            "true_positive": true,
+            "cwe": 89,
+            "location": {
+                "file": "webgoat-lessons/sql-injection/src/main/java/org/owasp/webgoat/sql_injection/introduction/SqlInjectionLesson9.java",
+                "start_line": 61,
+                "end_line": 66
+            }
+        },
+        {
+            "category": "sqli",
+            "true_positive": true,
+            "cwe": 89,
+            "location": {
+                "file": "webgoat-lessons/sql-injection/src/main/java/org/owasp/webgoat/sql_injection/introduction/SqlInjectionLesson10.java",
+                "start_line": 58,
+                "end_line": 63
+            }
+        },
+        {
+            "category": "sqli",
+            "true_positive": true,
+            "cwe": 89,
+            "location": {
+                "file": "webgoat-lessons/sql-injection/src/main/java/org/owasp/webgoat/sql_injection/advanced/SqlInjectionChallenge.java",
+                "start_line": 60,
+                "end_line": 67
+            }
+        },
+        {
+            "category": "sqli",
+            "true_positive": true,
+            "cwe": 89,
+            "location": {
+                "file": "webgoat-lessons/sql-injection/src/main/java/org/owasp/webgoat/sql_injection/advanced/SqlInjectionChallenge.java",
+                "start_line": 63,
+                "end_line": 65
+            }
+        },
+        {
+            "category": "pathtraver",
+            "true_positive": true,
+            "cwe": 23,
+            "location": {
+                "file": "webgoat-lessons/path-traversal/src/main/java/org/owasp/webgoat/path_traversal/ProfileUploadBase.java",
+                "start_line": 67,
+                "end_line": 67
+            }
+        },
+        {
+            "category": "pathtraver",
+            "true_positive": true,
+            "cwe": 23,
+            "location": {
+                "file": "webgoat-lessons/path-traversal/src/main/java/org/owasp/webgoat/path_traversal/ProfileUploadBase.java",
+                "start_line": 41,
+                "end_line": 41
+            }
+        },
+        {
+            "category": "pathtraver",
+            "true_positive": true,
+            "cwe": 23,
+            "location": {
+                "file": "webgoat-lessons/path-traversal/src/main/java/org/owasp/webgoat/path_traversal/ProfileUploadBase.java",
+                "start_line": 34,
+                "end_line": 34
+            }
+        },
+        {
+            "category": "hardcoded_credentials",
+            "true_positive": true,
+            "cwe": 259,
+            "location": {
+                "file": "webgoat-lessons/password-reset/src/main/java/org/owasp/webgoat/password_reset/ResetLinkAssignment.java",
+                "start_line": 48,
+                "end_line": 48
+            }
+        },
+        {
+            "category": "hardcoded_credentials",
+            "true_positive": true,
+            "cwe": 259,
+            "location": {
+                "file": "webgoat-lessons/jwt/src/main/resources/js/jwt-refresh.js",
+                "start_line": 10,
+                "end_line": 10
+            }
+        },
+        {
+            "category": "hardcoded_credentials",
+            "true_positive": true,
+            "cwe": 798,
+            "location": {
+                "file": "webgoat-lessons/jwt/src/main/resources/html/JWT.html",
+                "start_line": 285,
+                "end_line": 285
+            }
+        },
+        {
+            "category": "hardcoded_credentials",
+            "true_positive": true,
+            "cwe": 259,
+            "location": {
+                "file": "webgoat-lessons/jwt/src/main/java/org/owasp/webgoat/jwt/JWTVotesEndpoint.java",
+                "start_line": 63,
+                "end_line": 63
+            }
+        },
+        {
+            "category": "hardcoded_credentials",
+            "true_positive": true,
+            "cwe": 798,
+            "location": {
+                "file": "webgoat-lessons/jwt/src/main/java/org/owasp/webgoat/jwt/JWTSecretKeyEndpoint.java",
+                "start_line": 50,
+                "end_line": 50
+            }
+        },
+        {
+            "category": "hardcoded_credentials",
+            "true_positive": true,
+            "cwe": 259,
+            "location": {
+                "file": "webgoat-lessons/jwt/src/main/java/org/owasp/webgoat/jwt/JWTRefreshEndpoint.java",
+                "start_line": 49,
+                "end_line": 49
+            }
+        },
+        {
+            "category": "hardcoded_credentials",
+            "true_positive": true,
+            "cwe": 259,
+            "location": {
+                "file": "webgoat-lessons/jwt/src/main/java/org/owasp/webgoat/jwt/JWTRefreshEndpoint.java",
+                "start_line": 48,
+                "end_line": 48
+            }
+        },
+        {
+            "category": "sqli",
+            "true_positive": true,
+            "cwe": 89,
+            "location": {
+                "file": "webgoat-lessons/jwt/src/main/java/org/owasp/webgoat/jwt/JWTFinalEndpoint.java",
+                "start_line": 167,
+                "end_line": 167
+            }
+        },
+        {
+            "category": "xss",
+            "true_positive": true,
+            "cwe": 79,
+            "location": {
+                "file": "webgoat-lessons/jwt/src/main/java/org/owasp/webgoat/jwt/JWTFinalEndpoint.java",
+                "start_line": 134,
+                "end_line": 138
+            }
+        },
+        {
+            "category": "hardcoded_credentials",
+            "true_positive": true,
+            "cwe": 259,
+            "location": {
+                "file": "webgoat-lessons/insecure-login/src/main/java/org/owasp/webgoat/insecure_login/InsecureLoginTask.java",
+                "start_line": 35,
+                "end_line": 35
+            }
+        },
+        {
+            "category": "deserialization",
+            "true_positive": true,
+            "cwe": 502,
+            "location": {
+                "file": "webgoat-lessons/insecure-deserialization/src/main/java/org/owasp/webgoat/deserialization/InsecureDeserializationTask.java",
+                "start_line": 21,
+                "end_line": 21
+            }
+        },
+        {
+            "category": "cmdi",
+            "true_positive": true,
+            "cwe": 78,
+            "location": {
+                "file": "webgoat-lessons/insecure-deserialization/src/main/java/org/dummy/insecure/framework/VulnerableTaskHolder.java",
+                "start_line": 59,
+                "end_line": 59
+            }
+        },
+        {
+            "category": "deserialization",
+            "true_positive": true,
+            "cwe": 502,
+            "location": {
+                "file": "webgoat-lessons/insecure-deserialization/src/main/java/org/owasp/webgoat/deserialization/InsecureDeserializationTask.java",
+                "start_line": 56,
+                "end_line": 56
+            }
+        },
+        {
+            "category": "xss",
+            "true_positive": true,
+            "cwe": 79,
+            "location": {
+                "file": "webgoat-lessons/idor/src/main/resources/js/idor.js",
+                "start_line": 4,
+                "end_line": 7
+            }
+        },
+        {
+            "category": "hardcoded_credentials",
+            "true_positive": true,
+            "cwe": 259,
+            "location": {
+                "file": "webgoat-lessons/idor/src/main/java/org/owasp/webgoat/idor/IDORLogin.java",
+                "start_line": 50,
+                "end_line": 50
+            }
+        },
+        {
+            "category": "hardcoded_credentials",
+            "true_positive": true,
+            "cwe": 259,
+            "location": {
+                "file": "webgoat-lessons/idor/src/main/java/org/owasp/webgoat/idor/IDORLogin.java",
+                "start_line": 44,
+                "end_line": 44
+            }
+        },
+        {
+            "category": "xss",
+            "true_positive": true,
+            "cwe": 79,
+            "location": {
+                "file": "webgoat-lessons/csrf/src/main/resources/js/csrf-review.js",
+                "start_line": 37,
+                "end_line": 41
+            }
+        },
+        {
+            "category": "hardcoded_credentials",
+            "true_positive": true,
+            "cwe": 259,
+            "location": {
+                "file": "webgoat-lessons/crypto/src/main/java/org/owasp/webgoat/crypto/XOREncodingAssignment.java",
+                "start_line": 40,
+                "end_line": 40
+            }
+        },
+        {
+            "category": "crypto",
+            "true_positive": true,
+            "cwe": 203,
+            "location": {
+                "file": "webgoat-lessons/crypto/src/main/java/org/owasp/webgoat/crypto/SecureDefaultsAssignment.java",
+                "start_line": 43,
+                "end_line": 43
+            }
+        },
+        {
+            "category": "crypto",
+            "true_positive": true,
+            "cwe": 203,
+            "location": {
+                "file": "webgoat-lessons/crypto/src/main/java/org/owasp/webgoat/crypto/HashingAssignment.java",
+                "start_line": 96,
+                "end_line": 96
+            }
+        },
+        {
+            "category": "crypto",
+            "true_positive": true,
+            "cwe": 203,
+            "location": {
+                "file": "webgoat-lessons/crypto/src/main/java/org/owasp/webgoat/crypto/HashingAssignment.java",
+                "start_line": 95,
+                "end_line": 95
+            }
+        },
+        {
+            "category": "crypto",
+            "true_positive": true,
+            "cwe": 203,
+            "location": {
+                "file": "webgoat-lessons/crypto/src/main/java/org/owasp/webgoat/crypto/HashingAssignment.java",
+                "start_line": 91,
+                "end_line": 91
+            }
+        },
+        {
+            "category": "crypto",
+            "true_positive": true,
+            "cwe": 203,
+            "location": {
+                "file": "webgoat-lessons/crypto/src/main/java/org/owasp/webgoat/crypto/HashingAssignment.java",
+                "start_line": 90,
+                "end_line": 90
+            }
+        },
+        {
+            "category": "hardcoded_credentials",
+            "true_positive": true,
+            "cwe": 259,
+            "location": {
+                "file": "webgoat-lessons/crypto/src/main/java/org/owasp/webgoat/crypto/HashingAssignment.java",
+                "start_line": 46,
+                "end_line": 46
+            }
+        },
+        {
+            "category": "xss",
+            "true_positive": true,
+            "cwe": 79,
+            "location": {
+                "file": "webgoat-lessons/cross-site-scripting/src/main/resources/js/stored-xss.js",
+                "start_line": 37,
+                "end_line": 40
+            }
+        },
+        {
+            "category": "pii",
+            "true_positive": true,
+            "cwe": 359,
+            "location": {
+                "file": "webgoat-lessons/client-side-filtering/src/main/resources/employees.xml",
+                "start_line": 245,
+                "end_line": 245
+            }
+        },
+        {
+            "category": "pii",
+            "true_positive": true,
+            "cwe": 359,
+            "location": {
+                "file": "webgoat-lessons/client-side-filtering/src/main/resources/employees.xml",
+                "start_line": 243,
+                "end_line": 243
+            }
+        },
+        {
+            "category": "pii",
+            "true_positive": true,
+            "cwe": 359,
+            "location": {
+                "file": "webgoat-lessons/client-side-filtering/src/main/resources/employees.xml",
+                "start_line": 226,
+                "end_line": 226
+            }
+        },
+        {
+            "category": "pii",
+            "true_positive": true,
+            "cwe": 359,
+            "location": {
+                "file": "webgoat-lessons/client-side-filtering/src/main/resources/employees.xml",
+                "start_line": 224,
+                "end_line": 224
+            }
+        },
+        {
+            "category": "pii",
+            "true_positive": true,
+            "cwe": 359,
+            "location": {
+                "file": "webgoat-lessons/client-side-filtering/src/main/resources/employees.xml",
+                "start_line": 204,
+                "end_line": 204
+            }
+        },
+        {
+            "category": "pii",
+            "true_positive": true,
+            "cwe": 359,
+            "location": {
+                "file": "webgoat-lessons/client-side-filtering/src/main/resources/employees.xml",
+                "start_line": 202,
+                "end_line": 202
+            }
+        },
+        {
+            "category": "pii",
+            "true_positive": true,
+            "cwe": 359,
+            "location": {
+                "file": "webgoat-lessons/client-side-filtering/src/main/resources/employees.xml",
+                "start_line": 182,
+                "end_line": 182
+            }
+        },
+        {
+            "category": "pii",
+            "true_positive": true,
+            "cwe": 359,
+            "location": {
+                "file": "webgoat-lessons/client-side-filtering/src/main/resources/employees.xml",
+                "start_line": 180,
+                "end_line": 180
+            }
+        },
+        {
+            "category": "pii",
+            "true_positive": true,
+            "cwe": 359,
+            "location": {
+                "file": "webgoat-lessons/client-side-filtering/src/main/resources/employees.xml",
+                "start_line": 160,
+                "end_line": 160
+            }
+        },
+        {
+            "category": "pii",
+            "true_positive": true,
+            "cwe": 359,
+            "location": {
+                "file": "webgoat-lessons/client-side-filtering/src/main/resources/employees.xml",
+                "start_line": 158,
+                "end_line": 158
+            }
+        },
+        {
+            "category": "pii",
+            "true_positive": true,
+            "cwe": 359,
+            "location": {
+                "file": "webgoat-lessons/client-side-filtering/src/main/resources/employees.xml",
+                "start_line": 139,
+                "end_line": 139
+            }
+        },
+        {
+            "category": "pii",
+            "true_positive": true,
+            "cwe": 359,
+            "location": {
+                "file": "webgoat-lessons/client-side-filtering/src/main/resources/employees.xml",
+                "start_line": 137,
+                "end_line": 137
+            }
+        },
+        {
+            "category": "pii",
+            "true_positive": true,
+            "cwe": 359,
+            "location": {
+                "file": "webgoat-lessons/client-side-filtering/src/main/resources/employees.xml",
+                "start_line": 118,
+                "end_line": 118
+            }
+        },
+        {
+            "category": "pii",
+            "true_positive": true,
+            "cwe": 359,
+            "location": {
+                "file": "webgoat-lessons/client-side-filtering/src/main/resources/employees.xml",
+                "start_line": 116,
+                "end_line": 116
+            }
+        },
+        {
+            "category": "pii",
+            "true_positive": true,
+            "cwe": 359,
+            "location": {
+                "file": "webgoat-lessons/client-side-filtering/src/main/resources/employees.xml",
+                "start_line": 96,
+                "end_line": 96
+            }
+        },
+        {
+            "category": "pii",
+            "true_positive": true,
+            "cwe": 359,
+            "location": {
+                "file": "webgoat-lessons/client-side-filtering/src/main/resources/employees.xml",
+                "start_line": 94,
+                "end_line": 94
+            }
+        },
+        {
+            "category": "pii",
+            "true_positive": true,
+            "cwe": 359,
+            "location": {
+                "file": "webgoat-lessons/client-side-filtering/src/main/resources/employees.xml",
+                "start_line": 72,
+                "end_line": 72
+            }
+        },
+        {
+            "category": "pii",
+            "true_positive": true,
+            "cwe": 359,
+            "location": {
+                "file": "webgoat-lessons/client-side-filtering/src/main/resources/employees.xml",
+                "start_line": 51,
+                "end_line": 51
+            }
+        },
+        {
+            "category": "pii",
+            "true_positive": true,
+            "cwe": 359,
+            "location": {
+                "file": "webgoat-lessons/client-side-filtering/src/main/resources/employees.xml",
+                "start_line": 32,
+                "end_line": 32
+            }
+        },
+        {
+            "category": "pii",
+            "true_positive": true,
+            "cwe": 359,
+            "location": {
+                "file": "webgoat-lessons/client-side-filtering/src/main/resources/employees.xml",
+                "start_line": 13,
+                "end_line": 13
+            }
+        },
+        {
+            "category": "pii",
+            "true_positive": true,
+            "cwe": 359,
+            "location": {
+                "file": "webgoat-lessons/client-side-filtering/src/main/resources/employees.xml",
+                "start_line": 11,
+                "end_line": 11
+            }
+        },
+        {
+            "category": "xss",
+            "true_positive": true,
+            "cwe": 79,
+            "location": {
+                "file": "webgoat-lessons/client-side-filtering/src/main/resources/js/clientSideFiltering.js",
+                "start_line": 6,
+                "end_line": 6
+            }
+        },
+        {
+            "category": "xss",
+            "true_positive": true,
+            "cwe": 79,
+            "location": {
+                "file": "webgoat-lessons/client-side-filtering/src/main/resources/js/clientSideFiltering.js",
+                "start_line": 27,
+                "end_line": 38
+            }
+        },
+        {
+            "category": "hardcoded_credentials",
+            "true_positive": true,
+            "cwe": 798,
+            "location": {
+                "file": "webgoat-lessons/challenge/src/main/java/org/owasp/webgoat/challenges/SolutionConstants.java",
+                "start_line": 36,
+                "end_line": 36
+            }
+        },
+        {
+            "category": "hardcoded_credentials",
+            "true_positive": true,
+            "cwe": 259,
+            "location": {
+                "file": "webgoat-lessons/challenge/src/main/java/org/owasp/webgoat/challenges/SolutionConstants.java",
+                "start_line": 34,
+                "end_line": 34
+            }
+        },
+        {
+            "category": "hardcoded_credentials",
+            "true_positive": true,
+            "cwe": 259,
+            "location": {
+                "file": "webgoat-lessons/challenge/src/main/java/org/owasp/webgoat/challenges/SolutionConstants.java",
+                "start_line": 35,
+                "end_line": 35
+            }
+        },
+        {
+            "category": "sqli",
+            "true_positive": true,
+            "cwe": 89,
+            "location": {
+                "file": "webgoat-lessons/challenge/src/main/java/org/owasp/webgoat/challenges/challenge5/Assignment5.java",
+                "start_line": 59,
+                "end_line": 60
+            }
+        }
+    ]
+}
