@@ -3,6 +3,9 @@ FROM openjdk:11.0.1-jre-slim-stretch
 ARG webgoat_version=v8.0.0-SNAPSHOT
 
 RUN \
+  sed -i s/deb.debian.org/archive.debian.org/g /etc/apt/sources.list
+  sed -i 's|security.debian.org|archive.debian.org|g' /etc/apt/sources.list
+  sed -i '/stretch-updates/d' /etc/apt/sources.list
   apt-get update && apt-get install && \
   useradd --home-dir /home/webgoat --create-home -U webgoat
 
