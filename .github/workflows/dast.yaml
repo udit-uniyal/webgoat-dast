@@ -85,6 +85,7 @@ jobs:
           token: ${{ secrets.TOKEN }} 
           tenant_id: ${{ secrets.TENANT_ID }}
           repository_name: ${{ github.repository }}
+          dockerfile_context: webgoat-server/Dockerfile
 
   dast:
     needs: push
