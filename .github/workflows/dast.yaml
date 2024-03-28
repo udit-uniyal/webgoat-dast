@@ -30,29 +30,8 @@ jobs:
         mvn package -DskipTests -Dmaven.repo.local=./.m2/
       env:
         CI_COMMIT_SHORT_SHA: ${{ github.sha }}
-
-  sast:
+  push:
     needs: build
-    runs-on: ubuntu-latest
-    steps:
-    - name: Run SAST Analysis
-      run: echo "Running SAST Analysis"
-    # - uses: actions/checkout@v2
-    # # Include your SAST tools here. This example uses a placeholder for SAST analysis.
-    - name: Checking out
-      uses: actions/checkout@v2
-      with:
-        # Disabling shallow clone is recommended for improving relevancy of reporting
-        fetch-depth: 0
-    - name: SonarQube Scan
-      uses: kitabisa/sonarqube-action@v1.2.0
-      with:
-        host: ${{ secrets.SONAR_HOST_URL }}
-        login: ${{ secrets.SONAR_TOKEN }}
-
-
-sast:
-    needs: push
     runs-on: ubuntu-latest
     services:
       docker:
@@ -73,6 +52,26 @@ sast:
         docker push ${{ secrets.DOCKER_USERNAME }}/webgoat:${{ github.sha }}
         docker push ${{ secrets.DOCKER_USERNAME }}/webgoat:latest
 
+  sast:
+    needs: push
+    runs-on: ubuntu-latest
+    steps:
+    - name: Run SAST Analysis
+      run: echo "Running SAST Analysis"
+    # - uses: actions/checkout@v2
+    # # Include your SAST tools here. This example uses a placeholder for SAST analysis.
+    - name: Checking out
+      uses: actions/checkout@v2
+      with:
+        # Disabling shallow clone is recommended for improving relevancy of reporting
+        fetch-depth: 0
+    - name: SonarQube Scan
+      uses: kitabisa/sonarqube-action@v1.2.0
+      with:
+        host: ${{ secrets.SONAR_HOST_URL }}
+        login: ${{ secrets.SONAR_TOKEN }}
+
+        
   accuknox-cicd:
     needs: build
     runs-on: ubuntu-latest
@@ -86,7 +85,6 @@ sast:
           token: ${{ secrets.TOKEN }} 
           tenant_id: ${{ secrets.TENANT_ID }}
           repository_name: ${{ github.repository }}
-          dockerfile_context: webgoat-server/Dockerfile
 
   dast:
     needs: push
