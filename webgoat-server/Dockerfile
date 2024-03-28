@@ -1,4 +1,4 @@
-FROM openjdk:11.0.24-jre-slim-bullseye
+FROM openjdk:11.0.1-jre-slim-stretch
 
 ARG webgoat_version=v8.0.0-SNAPSHOT
 
