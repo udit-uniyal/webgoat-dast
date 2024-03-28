@@ -15,7 +15,8 @@ USER webgoat
 COPY nginx.conf /etc/nginx/nginx.conf
 COPY index.html /usr/share/nginx/html/
 COPY webgoat-server-${webgoat_version}.jar /home/webgoat/webgoat.jar
-COPY webwolf-${webgoat_version}.jar /home/webgoat/webwolf.jar
+# COPY webwolf-${webgoat_version}.jar /home/webgoat/webwolf.jar
+COPY webwolf-${webgoat_version}.jar /home/webgoat/webgoat.jar
 COPY start.sh /home/webgoat
 
 EXPOSE 8080
