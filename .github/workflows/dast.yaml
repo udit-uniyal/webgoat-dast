@@ -40,26 +40,59 @@ jobs:
     - name: Run SAST Analysis
       run: echo "Running SAST Analysis"
 
+  # push:
+  #   needs: build
+  #   runs-on: ubuntu-latest
+  #   services:
+  #     docker:
+  #       image: docker:19.03.12
+  #       options: --privileged
+  #   steps:
+  #   - uses: actions/checkout@v2
+  #   - name: Log in to Docker Hub
+  #     uses: docker/login-action@v1
+  #     with:
+  #       username: ${{ secrets.DOCKER_USERNAME }}
+  #       password: ${{ secrets.DOCKER_PASSWORD }}
+  #   - name: Build and push Docker image
+  #     run: |
+  #       cd webgoat-server
+  #       docker build --build-arg webgoat_version=v8.1.0 --tag ${{ secrets.DOCKER_USERNAME }}/webgoat:${{ github.sha }} --tag ${{ secrets.DOCKER_USERNAME }}/webgoat:latest .
+  #       docker push ${{ secrets.DOCKER_USERNAME }}/webgoat:${{ github.sha }}
+  #       docker push ${{ secrets.DOCKER_USERNAME }}/webgoat:latest
+
   push:
     needs: build
     runs-on: ubuntu-latest
-    services:
-      docker:
-        image: docker:19.03.12
-        options: --privileged
     steps:
     - uses: actions/checkout@v2
-    - name: Log in to Docker Hub
+      with:
+        path: 'webgoat-server'
+
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v1
+
+    - name: Login to DockerHub
       uses: docker/login-action@v1
       with:
-        username: ${{ secrets.DOCKER_USERNAME }}
-        password: ${{ secrets.DOCKER_PASSWORD }}
+        username: ${{ secrets.DOCKER_USERNAME }} # Set in GitHub repo secrets
+        password: ${{ secrets.DOCKER_PASSWORD }} # Set in GitHub repo secrets
+
+    - name: Pull latest image or skip
+      run: docker pull ${{ secrets.DOCKER_USERNAME }}/webgoat:latest || true
+
     - name: Build and push Docker image
-      run: |
-        cd webgoat-server
-        docker build --build-arg webgoat_version=v8.1.0 --tag ${{ secrets.DOCKER_USERNAME }}/webgoat:${{ github.sha }} --tag ${{ secrets.DOCKER_USERNAME }}/webgoat:latest .
-        docker push ${{ secrets.DOCKER_USERNAME }}/webgoat:${{ github.sha }}
-        docker push ${{ secrets.DOCKER_USERNAME }}/webgoat:latest
+      uses: docker/build-push-action@v2
+      with:
+        context: webgoat-server
+        file: webgoat-server/Dockerfile
+        push: true
+        tags: |
+          ${{ secrets.DOCKER_USERNAME }}/webgoat:${{ github.sha }}
+          ${{ secrets.DOCKER_USERNAME }}/webgoat:latest
+        build-args: |
+          webgoat_version=v8.1.0
+
 
   dast:
     needs: push
