@@ -69,7 +69,7 @@ jobs:
           dockerfile_context: webgoat-server/Dockerfile
           
   push:
-    needs: build
+    needs: accuknox-cicd
     runs-on: ubuntu-latest
     services:
       docker:
@@ -89,8 +89,6 @@ jobs:
         docker build --build-arg webgoat_version=v8.1.0 --tag ${{ secrets.DOCKER_USERNAME }}/webgoat:${{ github.sha }} --tag ${{ secrets.DOCKER_USERNAME }}/webgoat:latest .
         docker push ${{ secrets.DOCKER_USERNAME }}/webgoat:${{ github.sha }}
         docker push ${{ secrets.DOCKER_USERNAME }}/webgoat:latest
-
-
   
 
   dast:
