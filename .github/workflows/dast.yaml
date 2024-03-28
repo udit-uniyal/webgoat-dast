@@ -40,7 +40,7 @@ jobs:
     # - uses: actions/checkout@v2
     # # Include your SAST tools here. This example uses a placeholder for SAST analysis.
     - name: Checking out
-      uses: actions/checkout@master
+      uses: actions/checkout@v2
       with:
         # Disabling shallow clone is recommended for improving relevancy of reporting
         fetch-depth: 0
