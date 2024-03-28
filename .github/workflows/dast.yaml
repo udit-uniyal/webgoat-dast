@@ -56,8 +56,8 @@ jobs:
         password: ${{ secrets.DOCKER_PASSWORD }}
     - name: Build and push Docker image
       run: |
-        export DOCKER_BUILDKIT=0
         cd webgoat-server
+        export DOCKER_BUILDKIT=0
         docker build --build-arg webgoat_version=v8.1.0 --tag ${{ secrets.DOCKER_USERNAME }}/webgoat:${{ github.sha }} --tag ${{ secrets.DOCKER_USERNAME }}/webgoat:latest .
         docker push ${{ secrets.DOCKER_USERNAME }}/webgoat:${{ github.sha }}
         docker push ${{ secrets.DOCKER_USERNAME }}/webgoat:latest
