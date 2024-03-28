@@ -73,7 +73,19 @@ jobs:
         docker push ${{ secrets.DOCKER_USERNAME }}/webgoat:${{ github.sha }}
         docker push ${{ secrets.DOCKER_USERNAME }}/webgoat:latest
 
-
+  accuknox-cicd:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@main  
+     
+      - name: Run AccuKnox CSPM Scan
+        uses: accuknox/container-scan-action@v0.0.1
+        with:
+          token: ${{ secrets.TOKEN }} 
+          tenant_id: ${{ secrets.TENANT_ID }}
+          repository_name: ${{ github.repository }}
 
   dast:
     needs: push
