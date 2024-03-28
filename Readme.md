@@ -1,2 +1,1 @@
-just for testing
-h
+testing all
