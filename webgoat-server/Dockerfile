@@ -4,7 +4,7 @@ FROM openjdk:11-jre-slim-bullseye
 ARG webgoat_version=v8.0.0-SNAPSHOT
 
 RUN \
-  && apt-get update && apt-get install && \
+  apt-get update && apt-get install && \
   useradd --home-dir /home/webgoat --create-home -U webgoat
 
 USER webgoat
