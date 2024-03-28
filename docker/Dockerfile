@@ -1,4 +1,5 @@
-FROM openjdk:11.0.1-jre-slim-stretch
+# FROM openjdk:11.0.1-jre-slim-stretch
+FROM openjdk:11-jre-slim-bullseye
 
 ARG webgoat_version=v8.0.0-SNAPSHOT
 ENV webgoat_version_env=${webgoat_version}
