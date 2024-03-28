@@ -3,9 +3,6 @@ FROM openjdk:11.0.1-jre-slim-stretch
 ARG webgoat_version=v8.0.0-SNAPSHOT
 
 RUN \
-  echo "deb [trusted=yes] http://archive.debian.org/debian stretch main non-free contrib" > /etc/apt/sources.list
-  echo "deb-src [trusted=yes] http://archive.debian.org/debian stretch main non-free contrib" >> /etc/apt/sources.list
-  echo "deb [trusted=yes] http://archive.debian.org/debian-security stretch/updates main non-free contrib" >> /etc/apt/sources.list
   apt-get update && apt-get install && \
   useradd --home-dir /home/webgoat --create-home -U webgoat
 
