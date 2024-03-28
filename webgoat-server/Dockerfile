@@ -9,7 +9,9 @@ RUN \
   ls
 
 USER webgoat
-RUN cd /home/webgoat/; mkdir -p .webgoat-${webgoat_version}
+RUN \
+  cd /home/webgoat/; mkdir -p .webgoat-${webgoat_version} && \
+  ls
 COPY target/webgoat-server-${webgoat_version}.jar /home/webgoat/webgoat.jar
 
 EXPOSE 8080
