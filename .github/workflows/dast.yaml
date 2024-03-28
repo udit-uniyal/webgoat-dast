@@ -51,7 +51,7 @@ jobs:
         login: ${{ secrets.SONAR_TOKEN }}
 
 
-  push:
+sast:
     needs: push
     runs-on: ubuntu-latest
     services:
