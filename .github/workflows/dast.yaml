@@ -130,6 +130,7 @@ jobs:
 
           
   acunetix_dast:
+      needs: push
       runs-on: ubuntu-latest
       steps:
         - name: Trigger Acuneitx Scan
