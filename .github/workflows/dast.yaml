@@ -31,6 +31,10 @@ jobs:
         fetch-depth: 0
     - name: SonarQube Scan
       uses: sonarsource/sonarqube-scan-action@master
+      with:
+       args: >
+        -X
+        -Dsonar.verbose=true      
       env:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         SONAR_HOST_URL: '172.21.251.83:9000'
