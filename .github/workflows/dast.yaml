@@ -37,7 +37,7 @@ jobs:
         -Dsonar.verbose=true      
       env:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        SONAR_HOST_URL: '172.21.251.83:9000'
+        SONAR_HOST_URL: 'https://7f73-103-178-58-117.ngrok-free.app'
         
   build:
     name: Build Project
