@@ -113,7 +113,7 @@ jobs:
         docker push ${{ secrets.DOCKER_USERNAME }}/webgoat:latest
   
 
-  dast:
+  zap_dast:
     needs: push
     runs-on: ubuntu-latest
     steps:
@@ -127,3 +127,11 @@ jobs:
           # http_login_form: '/app/login'
           # http_login_http_username: 'testuser'
           # http_login_http_password: ${{ secrets.ZAP_USER_PW }
+
+          
+  acunetix_dast:
+      runs-on: ubuntu-latest
+      steps:
+        - name: Trigger Acuneitx Scan
+          run: |
+            curl -k -i --request POST --url "https://online.acunetix.com/api/v1/scans" --header "X-Auth: 1986ad8c0a5b3df4d7028d5f3c06e936c9f1fb4e583a34a3ab293b65715cf6429" --header "content-type: application/json" --data '{"profile_id":"11111111-1111-1111-1111-111111111111", "schedule":{"disable":false,"start_date":null,"time_sensitive":false}, "user_authorized_to_scan":"yes", "target_id":"23c2461f-6528-40e5-8863-8c25833d2195"}'
