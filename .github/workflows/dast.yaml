@@ -18,22 +18,22 @@ jobs:
     # # Include your SAST tools here. This example uses a placeholder for SAST analysis.
     - name: Checking out
       uses: actions/checkout@v2
-    - uses: AppThreat/sast-scan-action@master
-      with:
-       type: "python"
+    # - uses: AppThreat/sast-scan-action@master
+    #   with:
+    #    type: "python"
 
-    - uses: actions/upload-artifact@v1
+    # - uses: actions/upload-artifact@v1
+    #   with:
+    #    name: reports
+    #    path: reports
       with:
-       name: reports
-       path: reports
-      # with:
-      #   # Disabling shallow clone is recommended for improving relevancy of reporting
-      #   fetch-depth: 0
-    # - name: SonarQube Scan
-    #   uses: sonarsource/sonarqube-scan-action@master
-    #   env:
-    #     SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-    #     SONAR_HOST_URL: 'http://172.17.0.2:9000'
+        # Disabling shallow clone is recommended for improving relevancy of reporting
+        fetch-depth: 0
+    - name: SonarQube Scan
+      uses: sonarsource/sonarqube-scan-action@master
+      env:
+        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        SONAR_HOST_URL: 'http://172.17.0.2:9000'
         
   build:
     name: Build Project
