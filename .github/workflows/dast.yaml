@@ -92,7 +92,7 @@ jobs:
           
   push:
     # needs: accuknox-cicd
-    needs: push
+    needs: build
     runs-on: ubuntu-latest
     services:
       docker:
