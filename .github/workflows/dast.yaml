@@ -75,7 +75,7 @@ jobs:
       env:
         CI_COMMIT_SHORT_SHA: ${{ github.sha }}
         
-  accuknox-cicd:
+  accuknox-container_scan:
     needs: build
     runs-on: ubuntu-latest
     steps:
