@@ -34,7 +34,7 @@ jobs:
       - name: Build and analyze
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-          SONAR_HOST_URL: https://7f73-103-178-58-117.ngrok-free.app
+          SONAR_HOST_URL: https://7258-103-178-58-117.ngrok-free.app
         run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=webgoat-java
     # - name: Run SAST Analysis
     #   run: echo "Running SAST Analysis"
@@ -51,7 +51,7 @@ jobs:
         
   build:
     name: Build Project
-    # needs: sast
+    needs: sast
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -91,8 +91,8 @@ jobs:
           dockerfile_context: webgoat-server/Dockerfile
           
   push:
-    # needs: accuknox-cicd
-    needs: build
+    needs: accuknox-cicd
+    # needs: build
     runs-on: ubuntu-latest
     services:
       docker:
