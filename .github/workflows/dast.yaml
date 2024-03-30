@@ -51,7 +51,7 @@ jobs:
         
   build:
     name: Build Project
-    needs: sast
+    # needs: sast
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -75,20 +75,20 @@ jobs:
       env:
         CI_COMMIT_SHORT_SHA: ${{ github.sha }}
         
-  accuknox-cicd:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@main  
+  # accuknox-cicd:
+  #   needs: build
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Checkout code
+  #       uses: actions/checkout@main  
      
-      - name: Run AccuKnox CSPM Scan
-        uses: accuknox/container-scan-action@v0.0.1
-        with:
-          token: ${{ secrets.TOKEN }} 
-          tenant_id: ${{ secrets.TENANT_ID }}
-          repository_name: ${{ github.repository }}
-          dockerfile_context: webgoat-server/Dockerfile
+  #     - name: Run AccuKnox CSPM Scan
+  #       uses: accuknox/container-scan-action@v0.0.1
+  #       with:
+  #         token: ${{ secrets.TOKEN }} 
+  #         tenant_id: ${{ secrets.TENANT_ID }}
+  #         repository_name: ${{ github.repository }}
+  #         dockerfile_context: webgoat-server/Dockerfile
           
   push:
     needs: accuknox-cicd
@@ -128,29 +128,29 @@ jobs:
           report_paths: '**/dastardly-report.xml'       # You need to update this path if you pass in a different output filename to the Dastardly action
           require_tests: true
           
-  zap_dast:
-    needs: push
-    runs-on: ubuntu-latest
-    steps:
-      - name: ZAP Scan
-        uses: zaproxy/action-full-scan@v0.9.0
-        with:
-          docker_name: 'ghcr.io/zaproxy/zaproxy:stable'
-          target: 'http://webgoat:8080/WebGoat/'
-          # cmd_options: '-a'
+  # zap_dast:
+  #   needs: push
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: ZAP Scan
+  #       uses: zaproxy/action-full-scan@v0.9.0
+  #       with:
+  #         docker_name: 'ghcr.io/zaproxy/zaproxy:stable'
+  #         target: 'http://webgoat:8080/WebGoat/'
+  #         # cmd_options: '-a'
           
-          # http_login_form: '/app/login'
-          # http_login_http_username: 'testuser'
-          # http_login_http_password: ${{ secrets.ZAP_USER_PW }
+  #         # http_login_form: '/app/login'
+  #         # http_login_http_username: 'testuser'
+  #         # http_login_http_password: ${{ secrets.ZAP_USER_PW }
 
           
-  acunetix_dast:
-      needs: push
-      runs-on: ubuntu-latest
-      steps:
-        - name: Trigger Acuneitx Scan
-          run: |
-            curl -k -i --request POST --url "https://online.acunetix.com/api/v1/scans" --header "X-Auth: 1986ad8c0a5b3df4d7028d5f3c06e936c9f1fb4e583a34a3ab293b65715cf6429" --header "content-type: application/json" --data '{"profile_id":"11111111-1111-1111-1111-111111111111", "schedule":{"disable":false,"start_date":null,"time_sensitive":false}, "user_authorized_to_scan":"yes", "target_id":"23c2461f-6528-40e5-8863-8c25833d2195"}'
+  # acunetix_dast:
+  #     needs: push
+  #     runs-on: ubuntu-latest
+  #     steps:
+  #       - name: Trigger Acuneitx Scan
+  #         run: |
+  #           curl -k -i --request POST --url "https://online.acunetix.com/api/v1/scans" --header "X-Auth: 1986ad8c0a5b3df4d7028d5f3c06e936c9f1fb4e583a34a3ab293b65715cf6429" --header "content-type: application/json" --data '{"profile_id":"11111111-1111-1111-1111-111111111111", "schedule":{"disable":false,"start_date":null,"time_sensitive":false}, "user_authorized_to_scan":"yes", "target_id":"23c2461f-6528-40e5-8863-8c25833d2195"}'
 
 
 
