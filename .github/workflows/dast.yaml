@@ -91,7 +91,7 @@ jobs:
           dockerfile_context: webgoat-server/Dockerfile
           
   push:
-    needs: accuknox-cicd
+    needs: accuknox-container_scan
     # needs: build
     runs-on: ubuntu-latest
     services:
