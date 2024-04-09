@@ -4,4 +4,3 @@ testing all
 - build
 - accuknox container scan
 - dast
--complete cycle
