@@ -34,15 +34,15 @@ jobs:
           restore-keys: ${{ runner.os }}-m2
       - name: Build and analyze
         env:
-          SONAR_TOKEN: "squ_85f49d280aa15d4ad8c45f33d7b0666ac86aef48"
+          SONAR_TOKEN: "squ_15a00575a2e22ac704e7388565d764b5e45fd1ce"
           SONAR_HOST_URL: "https://sq.accuknox.com:443"
-        run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=abcd
+        run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=webgoat-java
      
       - name: Run AccuKnox SAST job
         run: |
           docker run --rm -it \
             -e SQ_URL=https://sq.accuknox.com:443 \
-            -e SQ_AUTH_TOKEN=squ_85f49d280aa15d4ad8c45f33d7b0666ac86aef48 \
+            -e SQ_AUTH_TOKEN=squ_15a00575a2e22ac704e7388565d764b5e45fd1ce \
             -e REPORT_PATH=/app/data/ \
             -v $PWD:/app/data/ \
             accuknox/sastjob:latest
