@@ -20,7 +20,9 @@ jobs:
         with:
           java-version: '11'
           distribution: 'adopt'
-      
+      # Set full permissions for the workspace and potentially broader scope
+      - name: Set full permissions
+        run: sudo chmod -R 777 .      
       # Run build without SonarQube analysis
       - name: Build with Maven
         run: mvn clean install -DskipTests
