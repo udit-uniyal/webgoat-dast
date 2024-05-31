@@ -2,7 +2,7 @@
 
 SAST (Sonarqube) --> Buil Project --> Container Scan --> Push Image --> DAST (Burp, zap or acunetix)
 
-
+..
 
 # WebGoat 8: A deliberately insecure Web Application
 
