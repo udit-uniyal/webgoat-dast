@@ -66,6 +66,10 @@ jobs:
             -v $PWD:/app/data/ \
             accuknox/sastjob:latest
             
+      - name: List reports
+        run: |
+          echo "Listing generated reports..."
+          ls -l ${GITHUB_WORKSPACE}          
       - name: Upload SAST reports
         env:
           AK_URL: cspm.demo.accuknox.com
