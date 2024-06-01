@@ -60,7 +60,7 @@ jobs:
         run: |
           docker run --rm \
             -e SQ_URL=https://sq.accuknox.com:443 \
-            -e SQ_AUTH_TOKEN=squ_85f49d280aa15d4ad8c45f33d7b0666ac86aef48 \
+            -e SQ_AUTH_TOKEN=squ_f619f9573f62006c451f50f299db100d39824578 \
             -e REPORT_PATH=/app/data/ \
             -e SQ_PROJECTS="^webgoat-main$" \
             -v $PWD:/app/data/ \
