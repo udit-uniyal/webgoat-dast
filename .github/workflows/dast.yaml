@@ -54,7 +54,7 @@ jobs:
         env:
           SONAR_TOKEN: "squ_15a00575a2e22ac704e7388565d764b5e45fd1ce"
           SONAR_HOST_URL: "https://sq.accuknox.com:443"
-        run: mvn sonar:sonar -Dsonar.projectKey=webgoat-main
+        run: mvn sonar:sonar -Dsonar.projectKey='webgoat-dast'
 
       - name: Run AccuKnox SAST job
         run: |
@@ -62,7 +62,7 @@ jobs:
             -e SQ_URL=https://sq.accuknox.com:443 \
             -e SQ_AUTH_TOKEN=squ_f619f9573f62006c451f50f299db100d39824578 \
             -e REPORT_PATH=/app/data/ \
-            -e SQ_PROJECTS="^webgoat-main$" \
+            -e SQ_PROJECTS="^webgoat-dast$" \
             -v $PWD:/app/data/ \
             accuknox/sastjob:latest
             
