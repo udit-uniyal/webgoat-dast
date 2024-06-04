@@ -73,9 +73,8 @@ jobs:
       - name: Upload SAST reports
         env:
           AK_URL: cspm.demo.accuknox.com
-          TENANT_ID: 167
-          AK_TOK: eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzE5NTU1NDk1LCJqdGkiOiJlN2Q4MTdkZjJjYWE0N2EwOGNlZWM2MWU2Y2MwNzhlZiIsImlzcyI6ImNzcG0uZGVtby5hY2N1a25veC5jb20ifQ.A-7oroqqrmcVjeQhbiWVz7yuZq0UXElQFWMGUN-L0VgaziGHIzHSn50NZ6JCYy-_Datixms_YnXKzvsA7i-nDyHSShZamR_pTWgE_IUTLx8z1uKX6f1JnipEBvMWf3VLaHZgUXslcq8QqPXopUfYCvnn1aks2glf4xJuuISH2-zDz2hEFbp4MT1e7WKnNNh9nUoj8B8fOZhkMEPrpC32QWoMtK2tazgMhPXEOlw4fTIyL_GkTznwVZygav-TL1VPNi0pCyamwwFvITaHZ9kpNTgdU5nIloTt4lqcRoJ5kIXw_g-FJmFUeXGrlHei7lFD66UN_3pg5at_3XCkwDyvGA
-        run: |
+          TENANT_ID: ${{ secrets.Tenant_ID }}
+          AK_TOK: ${{ secrets.AK_ToK }}
           cd ${GITHUB_WORKSPACE}
           for file in `ls -1 SQ-*.json`; do
             curl --location --request POST "https://$AK_URL/api/v1/artifact/?tenant_id=$TENANT_ID&data_type=SQ&save_to_s3=false" \
