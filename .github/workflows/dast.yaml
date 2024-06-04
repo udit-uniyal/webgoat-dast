@@ -72,9 +72,9 @@ jobs:
           ls -l ${GITHUB_WORKSPACE}          
       - name: Upload SAST reports
         env:
-          AK_URL: cspm.demo.accuknox.com
-          TENANT_ID: ${{ secrets.Tenant_ID }}
-          AK_TOK: ${{ secrets.AK_ToK }}
+          AK_URL: cspm.dev.accuknox.com
+          TENANT_ID: 5822
+          AK_TOK: eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoyMDMzOTA1NTY2LCJqdGkiOiI3NjgzYzY0YzA2NjQ0MzAyOGM2Mjk0MjEyMTcwYTc3MCIsImlzcyI6ImNzcG0uZGV2LmFjY3Vrbm94LmNvbSJ9.Qv1wVxr_0xW7GuF-tk1VeUP9fUhLQcM1zLiIosMhC8OrBcVfZtof2plbvo7ZfbgCptPXfUKMo1yahpuuquxM1W4nb_zBPVV7e04D-IE7GbC9szyYwQxiKkBGcuSH0_KoNMwSdyVd_GovJc-YTFPQXpytn0pXlClfOp_9Sa4H4k1AVJyMa7Jpw8gUYm1rCeZf62tY7vOmqImo1TQ0yOHNgDIzrAyi7PRNkpGz2PJk89lC1I-tMkdrd_mkHfT3u3gcMmC3zjTvSA_rEkmXddXOVHAzs4gGRVCAkGkH0jiuJvpVFYOM0wXD7EI4QjiAL59NSwMp2GjoNVKTBN87dLUnew
           cd ${GITHUB_WORKSPACE}
           for file in `ls -1 SQ-*.json`; do
             curl --location --request POST "https://$AK_URL/api/v1/artifact/?tenant_id=$TENANT_ID&data_type=SQ&save_to_s3=false" \
